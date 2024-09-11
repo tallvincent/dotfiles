@@ -122,6 +122,7 @@ bindkey '^j' down-line-or-search
 alias vim="nvim"
 alias zshconfig="nvim ~/.zshrc"
 alias cat="bat"
+alias search="fzf --preview='bat --color=always {}'"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
