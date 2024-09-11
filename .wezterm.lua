@@ -16,6 +16,7 @@ config.window_decorations = "RESIZE"
 -- config.enable_tab_bar = false
 -- TODO: function to only show tab bar on keypress or when switching tabs
 config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
 config.adjust_window_size_when_changing_font_size = false
 
 config.mouse_bindings = {
@@ -37,6 +38,8 @@ config.keys = {
 	{ key = "l", mods = "CMD", action = act.ActivatePaneDirection("Right") },
 	{ key = "k", mods = "CMD", action = act.ActivatePaneDirection("Up") },
 	{ key = "j", mods = "CMD", action = act.ActivatePaneDirection("Down") },
+	-- Toggle zoom for current pane
+	{ key = "z", mods = "CMD", action = act.TogglePaneZoomState },
 	-- Tabs
 	{ key = "t", mods = "CMD|SHIFT", action = act.ShowTabNavigator },
 	{
