@@ -143,5 +143,8 @@ export PATH=$DEV/flutter/bin:$PATH
 # poetry path
 export PATH="/Users/user/.local/bin:$PATH"
 
+# MAMP
+export PATH=/Applications/MAMP/Library/bin:$PATH
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
