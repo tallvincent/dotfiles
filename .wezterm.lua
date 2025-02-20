@@ -28,23 +28,29 @@ config.mouse_bindings = {
 	},
 }
 
+config.leader = {
+	key = "a",
+	mods = "CTRL",
+	timeout_milliseconds = 2000,
+}
+
 -- Key remaps
 config.keys = {
-	{ key = "f", mods = "CMD", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "d", mods = "CMD", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "x", mods = "CMD", action = act.CloseCurrentPane({ confirm = true }) },
+	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "s", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "x", mods = "LEADER", action = act.CloseCurrentPane({ confirm = true }) },
 	-- Pane switching
-	{ key = "h", mods = "CMD", action = act.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "CMD", action = act.ActivatePaneDirection("Right") },
-	{ key = "k", mods = "CMD", action = act.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "CMD", action = act.ActivatePaneDirection("Down") },
+	{ key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
+	{ key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+	{ key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
 	-- Toggle zoom for current pane
-	{ key = "z", mods = "CMD", action = act.TogglePaneZoomState },
+	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
 	-- Tabs
-	{ key = "t", mods = "CMD|SHIFT", action = act.ShowTabNavigator },
+	{ key = "t", mods = "LEADER", action = act.ShowTabNavigator },
 	{
 		key = "R",
-		mods = "CMD|SHIFT",
+		mods = "LEADER",
 		action = act.PromptInputLine({
 			description = "Enter new name for tab",
 			action = wezterm.action_callback(function(window, _, line)
@@ -58,20 +64,20 @@ config.keys = {
 		}),
 	},
 	-- Open .wezterm.lua with Cmd + ,
-	{
-		key = ",",
-		mods = "CMD",
-		action = act.SpawnCommandInNewTab({
-			cwd = os.getenv("WEZTERM_CONFIG_DIR"),
-			set_environment_variables = {
-				TERM = "screen-256color",
-			},
-			args = {
-				"/opt/homebrew/bin/nvim",
-				os.getenv("WEZTERM_CONFIG_FILE"),
-			},
-		}),
-	},
+	-- {
+	-- 	key = ",",
+	-- 	mods = "LEADER",
+	-- 	action = act.SpawnCommandInNewTab({
+	-- 		cwd = os.getenv("WEZTERM_CONFIG_DIR"),
+	-- 		set_environment_variables = {
+	-- 			TERM = "screen-256color",
+	-- 		},
+	-- 		args = {
+	-- 			"/opt/homebrew/bin/nvim",
+	-- 			os.getenv("WEZTERM_CONFIG_FILE"),
+	-- 		},
+	-- 	}),
+	-- },
 }
 
 -- Return the configuration to wezterm
