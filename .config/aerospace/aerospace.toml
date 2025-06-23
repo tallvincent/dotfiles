@@ -208,7 +208,7 @@ if.app-id = 'com.apple.iCal'
 run = 'move-node-to-workspace A'
 [[on-window-detected]]
 if.app-id = 'io.freetubeapp.freetube'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace V'
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace R'
@@ -240,6 +240,9 @@ run = 'move-node-to-workspace Z'
 if.app-id = 'com.docker.docker'
 run = 'move-node-to-workspace X'
 [[on-window-detected]]
+if.app-id = 'com.mongodb.compass'
+run = 'move-node-to-workspace X'
+[[on-window-detected]]
 if.app-id = 'com.apple.Preview'
 run = 'move-node-to-workspace Z'
 [[on-window-detected]]
@@ -248,7 +251,6 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'com.apple.iphonesimulator'
 run = 'move-node-to-workspace 1'
-run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
 run = 'move-node-to-workspace 1'
