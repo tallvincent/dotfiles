@@ -6,7 +6,8 @@ local config = wezterm.config_builder()
 local act = wezterm.action
 
 -- Color scheme
-config.color_scheme = "Kanagawa (Gogh)"
+-- config.color_scheme = "Kanagawa (Gogh)"
+config.color_scheme = "catppuccin-frappe"
 config.font = wezterm.font("JetBrains Mono")
 
 config.window_background_opacity = 1.0
