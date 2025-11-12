@@ -95,7 +95,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='nvim'
 fi
 
 # Enable vi mode
@@ -122,7 +122,7 @@ bindkey '^j' down-line-or-search
 #
 # Example aliases
 alias vim="nvim"
-alias zshconfig="nvim ~/.zshrc"
+alias v="nvim ."
 alias cat="bat"
 alias search="fzf --preview='bat --color=always {}'"
 
