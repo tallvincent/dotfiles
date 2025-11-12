@@ -5,7 +5,7 @@ local projects = require("projects")
 local config = wezterm.config_builder()
 local act = wezterm.action
 
-wezterm.on("update-right-status", function(window, _pane)
+wezterm.on("update-status", function(window, _pane)
 	window:set_right_status("workspace: " .. window:active_workspace())
 end)
 
