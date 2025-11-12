@@ -1,9 +1,13 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
-
+local projects = require("projects")
 -- This will hold the configuration
 local config = wezterm.config_builder()
 local act = wezterm.action
+
+wezterm.on("update-right-status", function(window, _pane)
+	window:set_right_status("workspace: " .. window:active_workspace())
+end)
 
 -- Color scheme
 -- config.color_scheme = "Kanagawa (Gogh)"
@@ -21,7 +25,7 @@ config.tab_bar_at_bottom = true
 config.adjust_window_size_when_changing_font_size = false
 
 config.mouse_bindings = {
-	-- Ctrl-click will open the link under the mouse cursor
+	-- Cmd-click will open the link under the mouse cursor
 	{
 		event = { Up = { streak = 1, button = "Left" } },
 		mods = "CMD",
@@ -37,6 +41,9 @@ config.leader = {
 
 -- Key remaps
 config.keys = {
+	{ key = "p", mods = "LEADER", action = projects.choose_project() },
+	-- Open dotfiles directory in a new workspace
+	{ key = ",", mods = "LEADER", action = projects.dotfiles() },
 	{ key = "c", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "v", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "s", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
@@ -65,21 +72,13 @@ config.keys = {
 			end),
 		}),
 	},
-	-- Open .wezterm.lua with Cmd + ,
-	-- {
-	-- 	key = ",",
-	-- 	mods = "LEADER",
-	-- 	action = act.SpawnCommandInNewTab({
-	-- 		cwd = os.getenv("WEZTERM_CONFIG_DIR"),
-	-- 		set_environment_variables = {
-	-- 			TERM = "screen-256color",
-	-- 		},
-	-- 		args = {
-	-- 			"/opt/homebrew/bin/nvim",
-	-- 			os.getenv("WEZTERM_CONFIG_FILE"),
-	-- 		},
-	-- 	}),
-	-- },
+	{
+		key = "w",
+		mods = "LEADER",
+		action = act.ShowLauncherArgs({
+			flags = "FUZZY|WORKSPACES",
+		}),
+	},
 }
 
 config.key_tables = {

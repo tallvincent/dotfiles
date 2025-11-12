@@ -1,0 +1,74 @@
+ll
+ls
+all
+z dot
+config nu
+$nu.config-path
+cd /Users/user/Library/Application Support/nushell/
+cd "/Users/user/Library/Application Support/nushell/"
+vim config.nu
+$nu.default-config-dir
+$nu.default-config-dir = ~/
+echo $XDG_CONFIG_HOME
+echo XDG_CONFIG_HOME
+cd ~/dotfiles/
+vim .
+..
+ls
+ls -l
+ls -a
+cd dotfiles/
+nvim .
+neovim .
+vim .
+mv ~/Library/Application\ Support/nushell ~/dotfiles//.config
+mv "~/Library/Application Support/nushell" ~/dotfiles//.config
+mv "~/Library/Application Support/nushell" ~/dotfiles/.config
+ls
+ls -a
+cd .config/
+ls
+ls -a
+vim .
+mv "~/Library/Application Support/nushell" ~/dotfiles/.config
+echo ~
+echo $~
+cd ~
+mv "~/Library/Application Support/nushell" ~/dotfiles/.config
+$nu.default-config-dir
+cd ~/dotfiles/
+vim .
+nvim .
+$nu.default-config-dir
+$env.PATH
+$nu.default-config-dir
+config nu
+cd ~/dotfiles/
+exit
+config nu
+$nu.default-config-dir
+exit
+config nu
+$nu.config-path
+$nu.default-config-dir
+config nu
+exit
+config nu
+$env.path
+config nu
+exit
+$env.path
+exit
+config nu
+exit
+z dot
+z doc
+fzf
+z dot
+z d
+zi d
+ll
+ls
+cd valuemycards_elixir/
+vim .
+nvim .
