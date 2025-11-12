@@ -1,6 +1,6 @@
 # config.nu
 #
-# Installed by:
+# Installed by: vt
 # version = "0.108.0"
 #
 # This file is used to override default Nushell settings, define
