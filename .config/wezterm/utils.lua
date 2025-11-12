@@ -21,6 +21,7 @@ function module.workspace_double_pane(window, pane, direction, workspace, comman
 	})
 	local pane_top = pane_bottom:split({
 		direction = direction or "Top",
+		size = 0.3,
 	})
 	pane_bottom:activate()
 	pane_top:send_text(command1 .. "\n")
