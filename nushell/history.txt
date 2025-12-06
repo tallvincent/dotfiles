@@ -1,0 +1,10 @@
+$env.path
+$nu.default-config-dir
+$env.config.filesize
+exit
+$env.config.footer_mode
+help $env.config.footer_mode
+help footer_mode
+help -f footer_mode
+ls
+ls -la
