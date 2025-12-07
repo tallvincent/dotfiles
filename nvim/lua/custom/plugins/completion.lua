@@ -119,6 +119,7 @@ return { -- Autocompletion
       },
       sources = {
         { name = 'nvim_lsp' },
+        { name = 'cmp-path' },
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
