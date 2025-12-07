@@ -13,7 +13,7 @@ return { -- You can easily change to a different colorscheme.
     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
     -- vim.cmd.colorscheme 'tokyonight-night'
     -- vim.cmd.colorscheme 'kanagawa-wave'
-    vim.cmd.colorscheme 'catppuccin-frappe'
+    vim.cmd.colorscheme 'catppuccin-mocha'
 
     -- You can configure highlights by doing something like:
     vim.cmd.hi 'Comment gui=none'
