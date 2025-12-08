@@ -4,12 +4,12 @@ local module = {}
 
 local function project_dotfiles(window, pane)
 	local cwd = "~/dotfiles"
-	return utils.workspace_single_pane(window, pane, "dotfiles", "cd " .. cwd .. " && vim .")
+	return utils.workspace_single_pane(window, pane, "dotfiles", "cd " .. cwd .. " && nvim .")
 end
 
 local function project_vmcr(window, pane)
-	local cwd = "~/Documents/GitHub/valuemycards_rebirth"
-	return utils.workspace_double_pane(window, pane, "Left", "VMCR", "cd " .. cwd, "cd " .. cwd .. " && vim .")
+	local cwd = "~/Projects/valuemycards_rebirth"
+	return utils.workspace_double_pane(window, pane, "Left", "VMCR", "cd " .. cwd, "cd " .. cwd .. " && nvim .")
 end
 
 local function project_slbd_lcl(window, pane)
@@ -20,7 +20,7 @@ local function project_slbd_lcl(window, pane)
 		"Left",
 		"SLBD LCL",
 		"tail -f /Applications/MAMP/logs/php_error.log",
-		"cd " .. cwd .. " && vim ."
+		"cd " .. cwd .. " && nvim ."
 	)
 end
 
