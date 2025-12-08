@@ -910,16 +910,27 @@ $env.config = {
     ]
 }
 
+let shims_dir = (
+  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+    $env.HOME | path join '.asdf'
+  } else {
+    $env.ASDF_DATA_DIR
+  } | path join 'shims'
+)
+$env.PATH = ( $env.PATH | split row (char esep) | where { |p| $p != $shims_dir } | prepend $shims_dir )
+
 def --env cx [arg] {
     cd $arg
     ls -l
 }
 
-alias l = ls --all
-alias c = clear
 alias ll = ls -l
+alias ls = eza -lh --group-directories-first --icons=auto
+alias lsa = ls -a
 alias lt = eza --tree --level=2 --long --icons --git
+alias lta = lt -a
 alias v = nvim
+alias vv = nvim .
 
 def ff [] {
     aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
@@ -944,3 +955,4 @@ alias gre = git reset
 
 source ~/.config/nushell/env.nu
 source ~/.zoxide.nu
+use ~/.cache/starship/init.nu
