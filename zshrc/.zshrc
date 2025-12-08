@@ -9,15 +9,18 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 plugins=(git)
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
+else
+  source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -32,7 +35,6 @@ bindkey -v
 bindkey ^P history-incremental-search-backward
 bindkey ^N history-incremental-search-forward
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^w' autosuggest-execute
 bindkey '^e' autosuggest-accept
 bindkey '^u' autosuggest-toggle
@@ -80,17 +82,14 @@ alias ....='cd ../../..'
 
 # Tools
 alias d='docker'
-alias v="nvim ."
+alias v="nvim"
+alias vv="nvim ."
 
 # Git
 alias g='git'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # dev path
 export DEV=$HOME/dev
@@ -104,15 +103,8 @@ export PATH=$ANDROID_HOME/platform-tools/:$PATH
 # flutter SDK
 export PATH=$DEV/flutter/bin:$PATH
 
-# poetry path
-export PATH="/Users/user/.local/bin:$PATH"
-
 # MAMP
 export PATH=/Applications/MAMP/Library/bin:$PATH
-
-# Node and npm
-export PATH=$PATH:/opt/homebrew/bin
-export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
 
 # zoxide
 export _ZO_ECHO=1
@@ -122,5 +114,8 @@ eval "$(zoxide init zsh)"
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+
+# asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 eval "$(starship init zsh)"
