@@ -31,9 +31,6 @@ require('lazy').setup {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },
-  {
-    'petobens/poet-v',
-  },
   -- Import all plugins in lua/custom/plugins
   -- For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   { import = 'custom.plugins' },
